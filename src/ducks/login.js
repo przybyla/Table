@@ -4,11 +4,11 @@ import { Map } from 'immutable';
 import { createAction, handleActions } from 'redux-actions';
 
 export const actions = {
-  SUCCESS: createAction('LOGIN/SUCCESS:'),
-  ERROR: createAction('LOGIN/ERROR:'),
-  REQUEST: createAction('LOGIN/REQUEST:'),
-  EMAIL: createAction('LOGIN/EMAIL:'),
-  PASSWORD: createAction('LOGIN/PASSWORD:')
+  SUCCESS: createAction('LOGIN/SUCCESS'),
+  ERROR: createAction('LOGIN/ERROR'),
+  REQUEST: createAction('LOGIN/REQUEST'),
+  EMAIL: createAction('LOGIN/EMAIL'),
+  PASSWORD: createAction('LOGIN/PASSWORD')
 };
 
 type StateType = Map<string, string | boolean | Map<string, any>>;

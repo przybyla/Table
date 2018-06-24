@@ -1,23 +1,22 @@
 import { call, put } from 'redux-saga/effects';
-import { actions as LOGIN_ACTIONS } from '../ducks/login';
+import { actions as ADRESS_LIST_ACTIONS } from '../ducks/adressList';
 import { fetch } from './utils';
-import history from '../scenes/history';
 
-export function* login(
+export function* adressList(
   action: any,
   api: (a: string, b: Object) => {} = fetch
 ): Generator<any, any, any> {
   const { response, error } = yield call(
     api,
-    'http://demo2832403.mockable.io/login',
+    'http://demo2832403.mockable.io/event-list',
     {
-      method: 'POST'
+      method: 'get'
     }
   );
   if (response) {
-    yield put(LOGIN_ACTIONS.SUCCESS());
-    yield call(history.push, '/adress-list/');
+    const json = yield response.json();
+    yield put(ADRESS_LIST_ACTIONS.SUCCESS(json));
   } else if (error.status < 500 && error.status >= 400) {
-    yield put(LOGIN_ACTIONS.ERROR());
+    yield put(ADRESS_LIST_ACTIONS.ERROR());
   }
 }
