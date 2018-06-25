@@ -4,9 +4,9 @@ import { Map } from 'immutable';
 import { createAction, handleActions } from 'redux-actions';
 
 export const actions = {
-  SUCCESS: createAction('ADRESS_LIST/SUCCESS'),
-  ERROR: createAction('ADRESS_LIST/ERROR'),
-  REQUEST: createAction('ADRESS_LIST/REQUEST')
+  SUCCESS: createAction('PLACES/SUCCESS'),
+  ERROR: createAction('PLACES/ERROR'),
+  REQUEST: createAction('PLACES/REQUEST')
 };
 
 type StateType = Map<string, string | boolean | Map<string, any>>;

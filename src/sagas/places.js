@@ -1,5 +1,5 @@
 import { call, put } from 'redux-saga/effects';
-import { actions as ADRESS_LIST_ACTIONS } from '../ducks/places';
+import { actions as PLACES_ACTIONS } from '../ducks/places';
 import { fetch } from './utils';
 
 export function* places(
@@ -8,15 +8,15 @@ export function* places(
 ): Generator<any, any, any> {
   const { response, error } = yield call(
     api,
-    'http://demo2832403.mockable.io/event-list',
+    'http://demo2832403.mockable.io/places',
     {
       method: 'get'
     }
   );
   if (response) {
     const json = yield response.json();
-    yield put(ADRESS_LIST_ACTIONS.SUCCESS(json));
+    yield put(PLACES_ACTIONS.SUCCESS(json));
   } else if (error.status < 500 && error.status >= 400) {
-    yield put(ADRESS_LIST_ACTIONS.ERROR());
+    yield put(PLACES_ACTIONS.ERROR());
   }
 }
