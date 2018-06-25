@@ -1,14 +1,15 @@
 import { call, put } from 'redux-saga/effects';
-import { actions as PLACE_DETAILS_ACTIONS } from '../ducks/places';
+import { actions as PLACE_DETAILS_ACTIONS } from '../ducks/placeDetails';
 import { fetch } from './utils';
 
-export function* places(
+export function* placeDetails(
   action: any,
   api: (a: string, b: Object) => {} = fetch
 ): Generator<any, any, any> {
+  const id = action.payload;
   const { response, error } = yield call(
     api,
-    'http://demo2832403.mockable.io/places',
+    `http://demo2832403.mockable.io/place-details/${id}`,
     {
       method: 'get'
     }
