@@ -1856,7 +1856,7 @@ fetched the latest updates that will be available the next time they load the
 page (showing a "New content is available; please refresh." message). Showing
 this messages is currently left as an exercise to the developer, but as a
 starting point, you can make use of the logic included in [`src/registerServiceWorker.js`](src/registerServiceWorker.js), which
-demonstrates which service worker lifecycle adressList to listen for to detect each
+demonstrates which service worker lifecycle places to listen for to detect each
 scenario, and which as a default, just logs appropriate messages to the
 JavaScript console.
 

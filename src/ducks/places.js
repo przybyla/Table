@@ -16,7 +16,7 @@ export type EventListActionType = {
 };
 
 export const initialState = Map({
-  adressList: Map({}),
+  places: Map({}),
   isProcessing: false,
   error: false
 });
@@ -24,7 +24,7 @@ export const initialState = Map({
 const reducer = handleActions(
   {
     [actions.SUCCESS]: (state: StateType, action: EventListActionType) =>
-      state.set('isProcessing', false).set('adressList', action.payload),
+      state.set('isProcessing', false).set('places', action.payload),
     [actions.REQUEST]: (state: StateType, action: EventListActionType) =>
       state.set('isProcessing', true),
     [actions.ERROR]: (state: StateType, action: EventListActionType) =>

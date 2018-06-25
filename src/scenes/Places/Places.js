@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { actions as eventListActions } from '../../ducks/adressList';
-import history from '../history';
+import { actions as eventListActions } from '../../ducks/places';
 
-class AdressList extends Component {
+class Places extends Component {
   state = {};
   componentDidMount() {
     const {
@@ -14,10 +13,10 @@ class AdressList extends Component {
     REQUEST();
   }
   render() {
-    const { adressList } = this.props;
+    const { places } = this.props;
     return (
       <div>
-        {adressList.map((items, idx) => (
+        {places.map((items, idx) => (
           <NavLink key={idx} to={items.name}>
             <div>{items.name}</div>
             <div>{items.city}</div>
@@ -34,10 +33,10 @@ const mapDispatchToProps = (dispatch: () => void) => ({
 });
 
 const mapStateToProps = (state: any) => ({
-  adressList: state.adressList.get('adressList')
+  places: state.places.get('places')
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(AdressList);
+)(Places);

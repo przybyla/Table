@@ -1,8 +1,8 @@
 import { call, put } from 'redux-saga/effects';
-import { actions as ADRESS_LIST_ACTIONS } from '../ducks/adressList';
+import { actions as ADRESS_LIST_ACTIONS } from '../ducks/places';
 import { fetch } from './utils';
 
-export function* adressList(
+export function* places(
   action: any,
   api: (a: string, b: Object) => {} = fetch
 ): Generator<any, any, any> {

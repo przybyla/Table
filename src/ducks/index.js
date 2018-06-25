@@ -1,8 +1,8 @@
 // @flow
 import { combineReducers } from 'redux';
 import login from './login';
-import adressList from './adressList';
+import places from './places';
 
-const rootReducer = combineReducers({ login, adressList });
+const rootReducer = combineReducers({ login, places });
 
 export default rootReducer;
