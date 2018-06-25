@@ -20,8 +20,8 @@ class Scenes extends Component {
         <Router history={history}>
           <Switch>
             <Route exact path="/login/" component={Login} />
-            <Route exact path="/adress-list/" component={Places} />
-            <Route exact path="/adress-list/:id?" component={PlaceDetails} />
+            <Route exact path="/places/" component={Places} />
+            <Route exact path="/places/:id" component={PlaceDetails} />
           </Switch>
         </Router>
       </AppWrapper>

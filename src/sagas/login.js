@@ -16,7 +16,7 @@ export function* login(
   );
   if (response) {
     yield put(LOGIN_ACTIONS.SUCCESS());
-    yield call(history.push, '/adress-list/');
+    yield call(history.push, '/places/');
   } else if (error.status < 500 && error.status >= 400) {
     yield put(LOGIN_ACTIONS.ERROR());
   }
