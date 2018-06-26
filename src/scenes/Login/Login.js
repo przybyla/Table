@@ -6,8 +6,6 @@ import { bindActionCreators } from 'redux';
 import { actions as loginActions } from '../../ducks/login';
 
 const LoginStyle = styled.div`
-  width: 100%;
-  height: 100%;
   text-align: center;
 `;
 

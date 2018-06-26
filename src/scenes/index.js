@@ -7,9 +7,10 @@ import Places from './Places';
 import PlaceDetails from './PlaceDetails';
 
 const AppWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  max-width: 1920px;
+  width: 100%;
+  margin: 0 auto;
+  overflow-x: hidden;
 `;
 
 class Scenes extends Component {
