@@ -28,12 +28,15 @@ class Login extends Component {
   state = {};
   render() {
     const {
-      LOGIN_ACTIONS: { EMAIL, PASSWORD, REQUEST }
+      LOGIN_ACTIONS: { INPUT, REQUEST }
     } = this.props;
     return (
       <LoginWrapper>
-        <Input onChange={e => EMAIL(e.target.value)} type="text" />
-        <Input onChange={e => PASSWORD(e.target.value)} type="password" />
+        <Input onChange={e => INPUT(['login', e.target.value])} type="text" />
+        <Input
+          onChange={e => INPUT(['password', e.target.value])}
+          type="password"
+        />
         <LoginButton onClick={() => REQUEST()}>LOGIN</LoginButton>
       </LoginWrapper>
     );
