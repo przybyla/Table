@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { actions as placeDetailsActions } from '../../ducks/placeDetails';
+
+const PlaceDetailsWrapper = styled.div`
+  padding: 10px;
+`;
 
 class PlaceDetails extends Component {
   state = {};
@@ -18,7 +23,7 @@ class PlaceDetails extends Component {
   render() {
     const { details } = this.props;
     return (
-      <div>
+      <PlaceDetailsWrapper>
         <div>{details.name}</div>
         <div>{details.city}</div>
         <div>{details.street}</div>
@@ -36,7 +41,7 @@ class PlaceDetails extends Component {
               ))}
           </div>
         )}
-      </div>
+      </PlaceDetailsWrapper>
     );
   }
 }
