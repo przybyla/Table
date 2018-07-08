@@ -7,8 +7,7 @@ export const actions = {
   SUCCESS: createAction('LOGIN/SUCCESS'),
   ERROR: createAction('LOGIN/ERROR'),
   REQUEST: createAction('LOGIN/REQUEST'),
-  EMAIL: createAction('LOGIN/EMAIL'),
-  PASSWORD: createAction('LOGIN/PASSWORD')
+  INPUT: createAction('LOGIN/INPUT')
 };
 
 type StateType = Map<string, string | boolean | Map<string, any>>;
@@ -32,10 +31,8 @@ const reducer = handleActions(
       state.set('isProcessing', true),
     [actions.ERROR]: (state: StateType, action: LoginActionType) =>
       state.set('isProcessing', false).set('error', true),
-    [actions.EMAIL]: (state: StateType, action: LoginActionType) =>
-      state.set('email', action.payload),
-    [actions.PASSWORD]: (state: StateType, action: LoginActionType) =>
-      state.set('password', action.payload)
+    [actions.INPUT]: (state: StateType, action: AddEventActionType) =>
+      state.set(action.payload[0], action.payload[1])
   },
   initialState
 );

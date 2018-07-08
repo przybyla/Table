@@ -1,5 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+import { actions as responsiveActions } from '../../ducks/responsive';
 
 const HeaderWrapper = styled.div`
   width: 100vw;
@@ -7,6 +11,15 @@ const HeaderWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+`;
+
+const Menu = styled.div`
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 250px;
+  background: #fff;
 `;
 
 const MenuButton = styled.div`
@@ -19,13 +32,36 @@ const MenuButton = styled.div`
   }
 `;
 
-const Header = () => (
-  <HeaderWrapper>
-    <MenuButton>Menu</MenuButton>
-    <div>LOGO</div>
-  </HeaderWrapper>
-);
+class Header extends Component {
+  render() {
+    const {
+      menuVisible,
+      RESPONSIVE_ACTIONS: { SHOW_MENU, HIDE_MENU }
+    } = this.props;
+    return (
+      <HeaderWrapper>
+        <MenuButton onClick={SHOW_MENU}>Menu</MenuButton>
+        {menuVisible && (
+          <Menu>
+            <MenuButton onClick={HIDE_MENU}>Menu</MenuButton>
+            test
+          </Menu>
+        )}
+        <div>LOGO</div>
+      </HeaderWrapper>
+    );
+  }
+}
 
-export default Header;
+const mapDispatchToProps = (dispatch: () => void) => ({
+  RESPONSIVE_ACTIONS: bindActionCreators(responsiveActions, dispatch)
+});
 
-//TODO: button menu chowajacy sie na mobilce, pokazujacy sie na desktopie
+const mapStateToProps = (state: any) => ({
+  menuVisible: state.responsive.get('menuVisible')
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Header);
