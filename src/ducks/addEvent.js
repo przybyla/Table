@@ -17,12 +17,14 @@ export type AddEventActionType = {
 };
 
 export const initialState = Map({
-  adress: '',
-  time: '',
-  game: '',
-  players: '',
-  begginers: false,
-  private: true,
+  newEvent: Map({
+    address: '',
+    time: '',
+    game: '',
+    players: '',
+    begginers: false,
+    private: true
+  }),
   isProcessing: false,
   error: false
 });
@@ -36,7 +38,7 @@ const reducer = handleActions(
     [actions.ERROR]: (state: StateType, action: AddEventActionType) =>
       state.set('isProcessing', false).set('error', true),
     [actions.INPUT]: (state: StateType, action: AddEventActionType) =>
-      state.set(action.payload[0], action.payload[1])
+      state.setIn(['newEvent', action.payload[0]], action.payload[1])
   },
   initialState
 );

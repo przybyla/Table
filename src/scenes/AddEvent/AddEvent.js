@@ -16,15 +16,18 @@ const Label = styled.p`
 class AddEvent extends Component {
   render() {
     const {
-      ADD_EVENT_ACTIONS: { INPUT }
+      ADD_EVENT_ACTIONS: { INPUT, PUT },
+      newEvent
     } = this.props;
+
+    console.log(newEvent);
     return (
       <AddEventWrapper>
         {/* TODO: move input to component */}
         <div>
           <input
             type="text"
-            onChange={e => INPUT(['adress', e.target.value])}
+            onChange={e => INPUT(['address', e.target.value])}
           />
           <Label>Adress</Label>
         </div>
@@ -51,7 +54,7 @@ class AddEvent extends Component {
           <input type="checkbox" />
           <Label>Private</Label>
         </div>
-        <button>Wyslij</button>
+        <button onClick={() => PUT(newEvent)}>Wyslij</button>
       </AddEventWrapper>
     );
   }
@@ -61,7 +64,11 @@ const mapDispatchToProps = (dispatch: () => void) => ({
   ADD_EVENT_ACTIONS: bindActionCreators(addEventActions, dispatch)
 });
 
+const mapStateToProps = (state: any) => ({
+  newEvent: state.addEvent.get('newEvent')
+});
+
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(AddEvent);
