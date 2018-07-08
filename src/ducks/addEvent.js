@@ -31,7 +31,7 @@ const reducer = handleActions(
   {
     [actions.SUCCESS]: (state: StateType, action: AddEventActionType) =>
       state.set('isProcessing', false),
-    [actions.REQUEST]: (state: StateType, action: AddEventActionType) =>
+    [actions.PUT]: (state: StateType, action: AddEventActionType) =>
       state.set('isProcessing', true),
     [actions.ERROR]: (state: StateType, action: AddEventActionType) =>
       state.set('isProcessing', false).set('error', true),

@@ -9,7 +9,6 @@ const AddEventWrapper = styled.div`
   padding: 10px;
 `;
 
-const InputWrapper = styled.div``;
 const Label = styled.p`
   margin: 0;
 `;
@@ -21,6 +20,7 @@ class AddEvent extends Component {
     } = this.props;
     return (
       <AddEventWrapper>
+        {/* TODO: move input to component */}
         <div>
           <input
             type="text"
