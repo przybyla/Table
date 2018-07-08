@@ -5,7 +5,8 @@ import { bindActionCreators } from 'redux';
 
 import { actions as loginActions } from '../../ducks/login';
 
-const LoginStyle = styled.div`
+const LoginWrapper = styled.div`
+  padding: 10px;
   text-align: center;
 `;
 
@@ -30,11 +31,11 @@ class Login extends Component {
       LOGIN_ACTIONS: { EMAIL, PASSWORD, REQUEST }
     } = this.props;
     return (
-      <LoginStyle>
+      <LoginWrapper>
         <Input onChange={e => EMAIL(e.target.value)} type="text" />
         <Input onChange={e => PASSWORD(e.target.value)} type="password" />
         <LoginButton onClick={() => REQUEST()}>LOGIN</LoginButton>
-      </LoginStyle>
+      </LoginWrapper>
     );
   }
 }

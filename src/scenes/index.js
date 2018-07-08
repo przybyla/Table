@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Router, Switch, Route } from 'react-router-dom';
+import { Router, Switch, Route, Redirect } from 'react-router-dom';
 import history from './history';
 import Login from './Login';
-import Places from './Places';
+import Map from './Map';
+import List from './List';
+import Profile from './Profile';
+import AddEvent from './AddEvent';
 import PlaceDetails from './PlaceDetails';
+import Menu from '../components/Menu';
+import Header from '../components/Header';
 
 const AppWrapper = styled.div`
   max-width: 1920px;
@@ -19,11 +24,18 @@ class Scenes extends Component {
     return (
       <AppWrapper>
         <Router history={history}>
-          <Switch>
-            <Route exact path="/login/" component={Login} />
-            <Route exact path="/places/" component={Places} />
-            <Route exact path="/places/:id" component={PlaceDetails} />
-          </Switch>
+          <div>
+            <Header />
+            <Menu />
+            {/* <Redirect exact path="/login/" component={Login} /> */}
+            <Switch>
+              <Route exact path="/profile/" component={Profile} />
+              <Route exact path="/map/" component={Map} />
+              <Route exact path="/list/" component={List} />
+              <Route exact path="/list/:id" component={PlaceDetails} />
+              <Route exact path="/add-event/" component={AddEvent} />
+            </Switch>
+          </div>
         </Router>
       </AppWrapper>
     );
