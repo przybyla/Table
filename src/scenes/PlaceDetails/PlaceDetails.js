@@ -2,10 +2,17 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import GoogleMapComponent from '../../components/GoogleMap';
+
 import { actions as placeDetailsActions } from '../../ducks/placeDetails';
 
 const PlaceDetailsWrapper = styled.div`
   padding: 10px;
+`;
+
+const MapWrapper = styled.div`
+  height: 300px;
+  width: 100vw;
 `;
 
 class PlaceDetails extends Component {
@@ -39,6 +46,14 @@ class PlaceDetails extends Component {
                   <div>{item.paid}</div>
                 </div>
               ))}
+            <GoogleMapComponent
+              isMarkerShown
+              googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6C8Q4vxD-PcbFdBaNGXVcqJTZHSlpIIw&v=3.exp&libraries=geometry,drawing,places"
+              loadingElement={<div style={{ height: `100%` }} />}
+              containerElement={<MapWrapper />}
+              mapElement={<div style={{ height: `100%` }} />}
+              places={details}
+            />
           </div>
         )}
       </PlaceDetailsWrapper>
