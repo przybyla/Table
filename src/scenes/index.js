@@ -26,10 +26,7 @@ class Scenes extends Component {
             <Header />
             <Menu />
             <Switch>
-              <Route exact path="/map/" component={Map} />
-              <Route exact path="/list/" component={List} />
-              <Route exact path="/list/:id" component={PlaceDetails} />
-              <Route exact path="/add-event/" component={AddEvent} />
+              <Route exact path="/" component={List} />
             </Switch>
           </div>
         </Router>

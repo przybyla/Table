@@ -9,7 +9,7 @@ import { actions as responsiveActions } from '../../ducks/responsive';
 
 const HeaderWrapper = styled.div`
   width: 100vw;
-  height: 30px;
+  height: 70px;
   display: flex;
   align-items: center;
   justify-content: center;
