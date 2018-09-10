@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+import { MenuIcon, CloseMenuIcon } from '../Icons';
 import { actions as responsiveActions } from '../../ducks/responsive';
 
 const HeaderWrapper = styled.div`
@@ -15,17 +17,22 @@ const HeaderWrapper = styled.div`
 
 const Menu = styled.div`
   position: absolute;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
   left: 0;
   top: 0;
   height: 100vh;
   width: 250px;
-  background: #fff;
+  background: #ccc;
+  color: #343d46;
+  padding-top: 50px;
 `;
 
 const MenuButton = styled.div`
   position: absolute;
-  left: 0;
-  top: 0;
+  left: 10px;
+  top: 5px;
   display: none;
   @media (min-width: 1200px) {
     display: block;
@@ -40,11 +47,18 @@ class Header extends Component {
     } = this.props;
     return (
       <HeaderWrapper>
-        <MenuButton onClick={SHOW_MENU}>Menu</MenuButton>
+        <MenuButton onClick={SHOW_MENU}>
+          <MenuIcon color="#ccc" />
+        </MenuButton>
         {menuVisible && (
           <Menu>
-            <MenuButton onClick={HIDE_MENU}>Menu</MenuButton>
-            test
+            <MenuButton onClick={HIDE_MENU}>
+              <CloseMenuIcon color="#343d46" />
+            </MenuButton>
+            <NavLink to="/profile/">Profile </NavLink>
+            <NavLink to="/map/">Map </NavLink>
+            <NavLink to="/list/">Event List </NavLink>
+            <NavLink to="/add-event/">Add Event </NavLink>
           </Menu>
         )}
         <div>LOGO</div>

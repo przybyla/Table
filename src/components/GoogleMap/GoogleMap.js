@@ -5,8 +5,7 @@ import {
   GoogleMap,
   Marker
 } from 'react-google-maps';
-import icon from './1.png';
-
+import PublicPin from './public-pin.svg';
 const exampleMapStyles = [
   {
     featureType: 'poi',
@@ -216,12 +215,7 @@ const GoogleMapComponent = withScriptjs(
       defaultCenter={{ lat: 50.049683, lng: 19.944544 }}>
       {props.isMarkerShown &&
         props.places.map(place => (
-          <Marker
-            icon={{
-              url: icon
-            }}
-            position={{ lat: place.lat, lng: place.lng }}
-          />
+          <Marker position={{ lat: place.lat, lng: place.lng }} />
         ))}
     </GoogleMap>
   ))

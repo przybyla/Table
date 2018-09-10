@@ -1,40 +1,31 @@
 import React from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
+import { ListIcon, UserIcon, MapIcon, AddEventIcon } from '../Icons';
 
 const MenuWrapper = styled.div`
   display: flex;
+  justify-content: space-around;
+  height: 40px;
   @media (min-width: 1200px) {
     display: none;
   }
 `;
 
-const MenuButton = styled.div`
-  width: 25%;
-  height: 40px;
-  display: flex
-  align-items: center;
-  justify-content: center;
-  a{
-    text-decoration: none;
-    color: #ccc;
-    }
-`;
-
 const Menu = () => (
   <MenuWrapper>
-    <MenuButton>
-      <NavLink to="/profile/"> Profile </NavLink>
-    </MenuButton>
-    <MenuButton>
-      <NavLink to="/map/"> Map </NavLink>
-    </MenuButton>
-    <MenuButton>
-      <NavLink to="/list/"> List </NavLink>
-    </MenuButton>
-    <MenuButton>
-      <NavLink to="/add-event/"> Add event </NavLink>
-    </MenuButton>
+    <NavLink to="/profile/">
+      <UserIcon color="#ccc" />
+    </NavLink>
+    <NavLink to="/map/">
+      <MapIcon color="#ccc" />
+    </NavLink>
+    <NavLink to="/list/">
+      <ListIcon color="#ccc" />
+    </NavLink>
+    <NavLink to="/add-event/">
+      <AddEventIcon color="#ccc" />
+    </NavLink>
   </MenuWrapper>
 );
 

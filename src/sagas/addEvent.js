@@ -1,5 +1,5 @@
 import { call, put } from 'redux-saga/effects';
-import { actions as ADD_EVENT_ACTIONS } from '../ducks/login';
+import { actions as ADD_EVENT_ACTIONS } from '../ducks/addEvent';
 import { fetch } from './utils';
 
 export function* addEvent(

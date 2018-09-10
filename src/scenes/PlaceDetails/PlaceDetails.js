@@ -12,7 +12,7 @@ const PlaceDetailsWrapper = styled.div`
 
 const MapWrapper = styled.div`
   height: 300px;
-  width: 100vw;
+  width: 100%;
 `;
 
 class PlaceDetails extends Component {
@@ -46,16 +46,15 @@ class PlaceDetails extends Component {
                   <div>{item.paid}</div>
                 </div>
               ))}
-            <GoogleMapComponent
-              isMarkerShown
-              googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6C8Q4vxD-PcbFdBaNGXVcqJTZHSlpIIw&v=3.exp&libraries=geometry,drawing,places"
-              loadingElement={<div style={{ height: `100%` }} />}
-              containerElement={<MapWrapper />}
-              mapElement={<div style={{ height: `100%` }} />}
-              places={details}
-            />
           </div>
         )}
+        <GoogleMapComponent
+          googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6C8Q4vxD-PcbFdBaNGXVcqJTZHSlpIIw&v=3.exp&libraries=geometry,drawing,places"
+          loadingElement={<div style={{ height: `100%` }} />}
+          containerElement={<MapWrapper />}
+          mapElement={<div style={{ height: `100%` }} />}
+          places={details}
+        />
       </PlaceDetailsWrapper>
     );
   }
