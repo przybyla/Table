@@ -48,9 +48,9 @@ class Header extends Component {
     } = this.props;
     return (
       <HeaderWrapper>
-        <MenuButton onClick={SHOW_MENU}>
+        {/* <MenuButton onClick={SHOW_MENU}>
           <MenuIcon color="#000" />
-        </MenuButton>
+        </MenuButton> */}
         {menuVisible && (
           <Menu>
             <MenuButton onClick={HIDE_MENU}>
