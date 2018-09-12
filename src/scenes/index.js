@@ -6,6 +6,7 @@ import List from './List';
 import AddEvent from './AddEvent';
 import Menu from '../components/Menu';
 import Header from '../components/Header';
+import Login from './Login';
 
 const AppWrapper = styled.div`
   max-width: 1920px;
@@ -26,6 +27,7 @@ class Scenes extends Component {
             <Switch>
               <Route exact path="/" component={List} />
               <Route exact path="/add-event" component={AddEvent} />
+              <Route exact path="/login" component={Login} />
             </Switch>
           </div>
         </Router>
