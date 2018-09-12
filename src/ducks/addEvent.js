@@ -7,7 +7,8 @@ export const actions = {
   PUT: createAction('ADD_EVENT/PUT'),
   SUCCESS: createAction('ADD_EVENT/SUCCESS'),
   ERROR: createAction('ADD_EVENT/ERROR'),
-  INPUT: createAction('ADD_EVENT/INPUT')
+  INPUT: createAction('ADD_EVENT/INPUT'),
+  GET_COORDS: createAction('ADD_EVENT/GET_COORDS')
 };
 
 type StateType = Map<string, string | boolean | Map<string, any>>;
@@ -18,12 +19,13 @@ export type AddEventActionType = {
 
 export const initialState = Map({
   newEvent: Map({
-    address: '',
+    street: '',
+    city: '',
     time: '',
     game: '',
     players: '',
-    begginers: false,
-    private: true
+    lat: '',
+    lng: ''
   }),
   isProcessing: false,
   error: false
@@ -35,6 +37,10 @@ const reducer = handleActions(
       state.set('isProcessing', false),
     [actions.PUT]: (state: StateType, action: AddEventActionType) =>
       state.set('isProcessing', true),
+    [actions.GET_COORDS]: (state: StateType, action: AddEventActionType) =>
+      state
+        .setIn(['newEvent', 'lat'], action.payload.lat)
+        .setIn(['newEvent', 'lng'], action.payload.lng),
     [actions.ERROR]: (state: StateType, action: AddEventActionType) =>
       state.set('isProcessing', false).set('error', true),
     [actions.INPUT]: (state: StateType, action: AddEventActionType) =>

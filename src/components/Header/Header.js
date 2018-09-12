@@ -13,6 +13,7 @@ const HeaderWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  border-bottom: 1px solid #000;
 `;
 
 const Menu = styled.div`
@@ -31,8 +32,8 @@ const Menu = styled.div`
 
 const MenuButton = styled.div`
   position: absolute;
-  left: 10px;
-  top: 5px;
+  left: 15px;
+  top: 25px;
   display: none;
   @media (min-width: 1200px) {
     display: block;
@@ -48,12 +49,12 @@ class Header extends Component {
     return (
       <HeaderWrapper>
         <MenuButton onClick={SHOW_MENU}>
-          <MenuIcon color="#ccc" />
+          <MenuIcon color="#000" />
         </MenuButton>
         {menuVisible && (
           <Menu>
             <MenuButton onClick={HIDE_MENU}>
-              <CloseMenuIcon color="#343d46" />
+              <CloseMenuIcon color="#000" />
             </MenuButton>
             <NavLink to="/profile/">Profile </NavLink>
             <NavLink to="/map/">Map </NavLink>

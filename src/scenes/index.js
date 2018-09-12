@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Router, Switch, Route, Redirect } from 'react-router-dom';
+import { Router, Switch, Route } from 'react-router-dom';
 import history from './history';
-import Map from './Map';
 import List from './List';
 import AddEvent from './AddEvent';
-import PlaceDetails from './PlaceDetails';
 import Menu from '../components/Menu';
 import Header from '../components/Header';
 
@@ -27,6 +25,7 @@ class Scenes extends Component {
             <Menu />
             <Switch>
               <Route exact path="/" component={List} />
+              <Route exact path="/add-event" component={AddEvent} />
             </Switch>
           </div>
         </Router>

@@ -9,6 +9,7 @@
     "immutable": "^4.0.0-rc.9",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
+    "react-geocode": "^0.1.2",
     "react-google-maps": "^9.4.5",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",

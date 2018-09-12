@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import Geocode from 'react-geocode';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-
+import { apiKey } from '../../config';
 import { actions as addEventActions } from '../../ducks/addEvent';
 
 const AddEventWrapper = styled.div`
@@ -15,21 +16,38 @@ const Label = styled.p`
 
 class AddEvent extends Component {
   render() {
+    Geocode.setApiKey(apiKey);
     const {
-      ADD_EVENT_ACTIONS: { INPUT, PUT },
-      newEvent
+      ADD_EVENT_ACTIONS: { INPUT, PUT, GET_COORDS },
+      newEvent,
+      street,
+      city
     } = this.props;
+    const onSend = () => {
+      Geocode.fromAddress(`${street}, ${city}`).then(response => {
+        const { lat, lng } = response.results[0].geometry.location;
+        if (response.status === 'OK') {
+          GET_COORDS({ lat, lng });
+          setTimeout(() => {
+            PUT(newEvent);
+          }, 2000);
+        }
+      });
+    };
 
-    console.log(newEvent);
     return (
       <AddEventWrapper>
         {/* TODO: move input to component */}
         <div>
           <input
             type="text"
-            onChange={e => INPUT(['address', e.target.value])}
+            onChange={e => INPUT(['street', e.target.value])}
           />
           <Label>Adress</Label>
+        </div>
+        <div>
+          <input type="text" onChange={e => INPUT(['city', e.target.value])} />
+          <Label>Miasto</Label>
         </div>
         <div>
           <input type="text" onChange={e => INPUT(['time', e.target.value])} />
@@ -46,15 +64,8 @@ class AddEvent extends Component {
           />
           <Label>Number of players</Label>
         </div>
-        <div>
-          <input type="checkbox" />
-          <Label>For begginers</Label>
-        </div>
-        <div>
-          <input type="checkbox" />
-          <Label>Private</Label>
-        </div>
-        <button onClick={() => PUT(newEvent)}>Wyslij</button>
+
+        <button onClick={() => onSend()}>Wyslij</button>
       </AddEventWrapper>
     );
   }
@@ -65,7 +76,9 @@ const mapDispatchToProps = (dispatch: () => void) => ({
 });
 
 const mapStateToProps = (state: any) => ({
-  newEvent: state.addEvent.get('newEvent')
+  newEvent: state.addEvent.get('newEvent'),
+  street: state.addEvent.getIn(['newEvent'], 'street'),
+  city: state.addEvent.getIn(['newEvent'], 'city')
 });
 
 export default connect(

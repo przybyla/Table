@@ -7,7 +7,7 @@ export const ListIcon = ({ color }: { color: string }) => (
     data-prefix="fas"
     data-icon="list"
     height="20px"
-    class="svg-inline--fa fa-list fa-w-16"
+    className="svg-inline--fa fa-list fa-w-16"
     role="img"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 512 512">
@@ -23,7 +23,7 @@ export const UserIcon = ({ color }: { color: string }) => (
     data-prefix="fas"
     data-icon="user"
     height="20px"
-    class="svg-inline--fa fa-user fa-w-14"
+    className="svg-inline--fa fa-user fa-w-14"
     role="img"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 448 512">
@@ -39,7 +39,7 @@ export const MapIcon = ({ color }: { color: string }) => (
     data-prefix="fas"
     data-icon="map-marked"
     height="20px"
-    class="svg-inline--fa fa-map-marked fa-w-18"
+    className="svg-inline--fa fa-map-marked fa-w-18"
     role="img"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 576 512">
@@ -56,7 +56,7 @@ export const AddEventIcon = ({ color }: { color: string }) => (
     data-prefix="fas"
     data-icon="plus"
     height="20px"
-    class="svg-inline--fa fa-plus fa-w-14"
+    className="svg-inline--fa fa-plus fa-w-14"
     role="img"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 448 512">
@@ -72,7 +72,7 @@ export const PinIcon = ({ color }: { color: string }) => (
     data-prefix="fas"
     data-icon="map-pin"
     height="20px"
-    class="svg-inline--fa fa-map-pin fa-w-10"
+    className="svg-inline--fa fa-map-pin fa-w-10"
     role="img"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 320 512">
@@ -88,7 +88,7 @@ export const CloseMenuIcon = ({ color }: { color: string }) => (
     data-prefix="fas"
     data-icon="times"
     height="20px"
-    class="svg-inline--fa fa-times fa-w-11"
+    className="svg-inline--fa fa-times fa-w-11"
     role="img"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 352 512">
@@ -104,7 +104,7 @@ export const MenuIcon = ({ color }: { color: string }) => (
     data-prefix="fas"
     data-icon="bars"
     height="20px"
-    class="svg-inline--fa fa-bars fa-w-14"
+    className="svg-inline--fa fa-bars fa-w-14"
     role="img"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 448 512">
