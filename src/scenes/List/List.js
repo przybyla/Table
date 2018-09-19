@@ -5,63 +5,34 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { apiKey } from '../../config';
 import { actions as eventListActions } from '../../ducks/places';
-import GoogleMapComponent from '../../components/GoogleMap';
+import { actions as addEventActions } from '../../ducks/addEvent';
+
+import AddButton from './components/AddButton';
+import SearchInput from './components/SearchInput';
+import EventItem from './components/EventItem';
 
 const Wrapper = styled.div`
   display: flex;
-  padding: 30px 40px;
-`;
-
-const LeftColumn = styled.div`
-  margin-right: 40px;
-  display: flex;
+  background: #ced7db;
+  width: 300px;
+  height: 100vh;
   flex-direction: column;
-`;
-
-const NewEventButton = styled.div`
-  padding: 13px 17px;
-  background: #fff;
-  border: 1px solid #000;
-  border-radius: 4px;
-  margin: 15px auto;
-`;
-
-const EventItem = styled.div`
-  padding: 5px;
-  border-bottom: 1px solid #000;
-  &:last-child {
-    border-bottom: none;
-  }
-`;
-
-const EventName = styled.div`
-  font-size: 16px;
-`;
-
-const EventAdress = styled.div`
-  font-size: 12px;
-`;
-
-const EventDetails = styled.div`
-  font-size: 10px;
-  display: flex;
-  justify-content: space-between;
+  box-shadow: 5px 0px 20px -6px rgba(0, 0, 0, 0.75);
+  z-index: 99;
+  align-items: center;
 `;
 
 const ListWrapper = styled.div`
-  height: 50vh;
+  background: #fff;
   overflow-y: scroll;
-  border: 1px solid #000;
   border-radius: 4px;
-  width: 280px;
-  a {
-    text-decoration: none;
-    color: #000;
-  }
+  width: 250px;
+  height: 500px;
+  box-shadow: 0px 5px 25px -6px rgba(0, 0, 0, 0.75);
 `;
 
 const MapWrapper = styled.div`
-  height: calc(100vh - 130px);
+  height: 100vh;
   width: 100vw;
 `;
 
@@ -76,45 +47,34 @@ class List extends Component {
   }
 
   render() {
-    const { places } = this.props;
+    const {
+      places,
+      ADD_EVENT_ACTIONS: { SHOW_MODAL }
+    } = this.props;
     return (
       <Wrapper>
-        <LeftColumn>
-          <ListWrapper>
-            {places.map((items, idx) => (
-              <EventItem key={idx}>
-                <NavLink to={items.name}>
-                  <EventName>{items.name}</EventName>
-                  <EventAdress>
-                    {items.street}, {items.city}
-                  </EventAdress>
-                  <EventDetails>
-                    <div>{items.date}</div>
-                    <div>{items.time}</div>
-                  </EventDetails>
-                </NavLink>
-              </EventItem>
-            ))}
-          </ListWrapper>
-          <NewEventButton>
-            <NavLink to="/add-event">ADD NEW EVENT</NavLink>
-          </NewEventButton>
-        </LeftColumn>
-        <GoogleMapComponent
-          isMarkerShown
-          googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${apiKey}&v=3.exp&libraries=geometry,drawing,places`}
-          loadingElement={<div style={{ height: `100%` }} />}
-          containerElement={<MapWrapper />}
-          mapElement={<div style={{ height: `100%` }} />}
-          places={places}
-        />
+        <SearchInput />
+        <ListWrapper>
+          {places.map((item, idx) => (
+            <EventItem
+              key={idx}
+              name={item.name}
+              street={item.street}
+              city={item.city}
+              date={item.date}
+              time={item.time}
+            />
+          ))}
+        </ListWrapper>
+        <AddButton onClick={SHOW_MODAL} />
       </Wrapper>
     );
   }
 }
 
 const mapDispatchToProps = (dispatch: () => void) => ({
-  PLACES_ACTIONS: bindActionCreators(eventListActions, dispatch)
+  PLACES_ACTIONS: bindActionCreators(eventListActions, dispatch),
+  ADD_EVENT_ACTIONS: bindActionCreators(addEventActions, dispatch)
 });
 
 const mapStateToProps = (state: any) => ({
