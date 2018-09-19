@@ -5,6 +5,7 @@ import { createAction, handleActions } from 'redux-actions';
 
 export const actions = {
   PUT: createAction('ADD_EVENT/PUT'),
+  SHOW_MODAL: createAction('ADD_EVENT/SHOW_MODAL'),
   SUCCESS: createAction('ADD_EVENT/SUCCESS'),
   ERROR: createAction('ADD_EVENT/ERROR'),
   INPUT: createAction('ADD_EVENT/INPUT'),
@@ -28,13 +29,16 @@ export const initialState = Map({
     lng: ''
   }),
   isProcessing: false,
-  error: false
+  error: false,
+  showModal: false
 });
 
 const reducer = handleActions(
   {
     [actions.SUCCESS]: (state: StateType, action: AddEventActionType) =>
       state.set('isProcessing', false),
+    [actions.SHOW_MODAL]: (state: StateType, action: AddEventActionType) =>
+      state.set('showModal', true),
     [actions.PUT]: (state: StateType, action: AddEventActionType) =>
       state.set('isProcessing', true),
     [actions.GET_COORDS]: (state: StateType, action: AddEventActionType) =>
