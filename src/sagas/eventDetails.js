@@ -1,8 +1,8 @@
 import { call, put } from 'redux-saga/effects';
-import { actions as PLACE_DETAILS_ACTIONS } from '../ducks/placeDetails';
+import { actions as EVENT_DETAILS_ACTIONS } from '../ducks/eventDetails';
 import { fetch } from './utils';
 
-export function* placeDetails(
+export function* eventDetails(
   action: any,
   api: (a: string, b: Object) => {} = fetch
 ): Generator<any, any, any> {
@@ -16,8 +16,8 @@ export function* placeDetails(
   );
   if (response) {
     const json = yield response.json();
-    yield put(PLACE_DETAILS_ACTIONS.SUCCESS(json));
+    yield put(EVENT_DETAILS_ACTIONS.SUCCESS(json));
   } else if (error.status < 500 && error.status >= 400) {
-    yield put(PLACE_DETAILS_ACTIONS.ERROR());
+    yield put(EVENT_DETAILS_ACTIONS.ERROR());
   }
 }
