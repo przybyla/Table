@@ -1,20 +1,17 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { apiKey } from '../../config';
 import { actions as eventListActions } from '../../ducks/places';
 import { actions as addEventActions } from '../../ducks/addEvent';
 
-import AddButton from './components/AddButton';
+import { Add } from '../../components/Icons';
 import SearchInput from './components/SearchInput';
 import EventItem from './components/EventItem';
 
 const Wrapper = styled.div`
   display: flex;
   background: #ced7db;
-  width: 300px;
   height: 100vh;
   flex-direction: column;
   box-shadow: 5px 0px 20px -6px rgba(0, 0, 0, 0.75);
@@ -31,9 +28,16 @@ const ListWrapper = styled.div`
   box-shadow: 0px 5px 25px -6px rgba(0, 0, 0, 0.75);
 `;
 
-const MapWrapper = styled.div`
-  height: 100vh;
-  width: 100vw;
+const Button = styled.button`
+  background: #37474f;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40px 0;
+  border-radius: 50%;
+  box-shadow: 0px 5px 25px -6px rgba(0, 0, 0, 0.75);
 `;
 
 class List extends Component {
@@ -66,7 +70,10 @@ class List extends Component {
             />
           ))}
         </ListWrapper>
-        <AddButton onClick={SHOW_MODAL} />
+
+        <Button onClick={SHOW_MODAL}>
+          <Add />
+        </Button>
       </Wrapper>
     );
   }
