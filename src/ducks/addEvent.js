@@ -40,7 +40,7 @@ const reducer = handleActions(
     [actions.SHOW_MODAL]: (state: StateType, action: AddEventActionType) =>
       state.set('showModal', true),
     [actions.PUT]: (state: StateType, action: AddEventActionType) =>
-      state.set('isProcessing', true),
+      state.set('isProcessing', true).set('showModal', false),
     [actions.GET_COORDS]: (state: StateType, action: AddEventActionType) =>
       state
         .setIn(['newEvent', 'lat'], action.payload.lat)

@@ -7,7 +7,14 @@ import { apiKey } from '../../config';
 import { actions as addEventActions } from '../../ducks/addEvent';
 
 const AddEventWrapper = styled.div`
-  padding: 10px;
+  padding: 15px;
+  position: absolute;
+  z-index: 99;
+  background: #ced7db;
+  height: 550px;
+  width: 1000px
+  top: calc(50% - 275px);
+  left: calc(50% - 500px);
 `;
 
 const Label = styled.p`
@@ -28,9 +35,7 @@ class AddEvent extends Component {
         const { lat, lng } = response.results[0].geometry.location;
         if (response.status === 'OK') {
           GET_COORDS({ lat, lng });
-          setTimeout(() => {
-            PUT(newEvent);
-          }, 2000);
+          PUT(newEvent);
         }
       });
     };
