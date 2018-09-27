@@ -3,13 +3,11 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import GoogleMapComponent from '../../components/GoogleMap';
 import { Back } from '../../components/Icons';
 
 import { actions as eventDetailsActions } from '../../ducks/eventDetails';
 
 const EventDetailsWrapper = styled.div`
-  width: calc(100vw - 300px);
   height: 100vh;
   flec-direction: column;
 `;
@@ -39,7 +37,6 @@ const GameInfo = styled.div`
 class EventDetails extends Component {
   state = {};
   render() {
-    const { details } = this.props;
     return (
       <EventDetailsWrapper>
         <Header>

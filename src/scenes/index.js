@@ -6,15 +6,22 @@ import history from './history';
 import { apiKey } from '../config';
 import List from './List';
 import EventDetails from './EventDetails';
-import AddEvent from './AddEvent';
+import AddEventPortal from './AddEvent';
 import GoogleMapComponent from '../components/GoogleMap';
 
 const AppWrapper = styled.div`
-  max-width: 1920px;
   width: 100%;
   margin: 0 auto;
   overflow-x: hidden;
   display: flex;
+`;
+
+const LeftColumn = styled.div`
+  width: 300px;
+`;
+const RightColumn = styled.div`
+  width: calc(100vw - 300px);
+  position: relative;
 `;
 
 const MapWrapper = styled.div`
@@ -24,29 +31,35 @@ const MapWrapper = styled.div`
 
 class Scenes extends Component {
   state = {};
+  rightColumn = React.createRef();
   render() {
-    const { places } = this.props;
+    const { places, showModal } = this.props;
     return (
       <Router history={history}>
         <AppWrapper>
-          <Route path="/:event?/:name?" component={List} />
-          <Switch>
-            <Route exact path="/event/:name" component={EventDetails} />
-            <Route
-              exact
-              path="/"
-              render={() => (
-                <GoogleMapComponent
-                  isMarkerShown
-                  googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${apiKey}&v=3.exp&libraries=geometry,drawing,places`}
-                  loadingElement={<div style={{ height: `100%` }} />}
-                  containerElement={<MapWrapper />}
-                  mapElement={<div style={{ height: `100%` }} />}
-                  places={places}
-                />
-              )}
-            />
-          </Switch>
+          <LeftColumn>
+            <Route path="/:event?/:name?" component={List} />
+          </LeftColumn>
+          <RightColumn ref={this.rightColumn}>
+            {showModal && <AddEventPortal renderRef={this.rightColumn} />}
+            <Switch>
+              <Route exact path="/event/:name" component={EventDetails} />
+              <Route
+                exact
+                path="/"
+                render={() => (
+                  <GoogleMapComponent
+                    isMarkerShown
+                    googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${apiKey}&v=3.exp&libraries=geometry,drawing,places`}
+                    loadingElement={<div style={{ height: `100%` }} />}
+                    containerElement={<MapWrapper />}
+                    mapElement={<div style={{ height: `100%` }} />}
+                    places={places}
+                  />
+                )}
+              />
+            </Switch>
+          </RightColumn>
         </AppWrapper>
       </Router>
     );
@@ -54,7 +67,8 @@ class Scenes extends Component {
 }
 
 const mapStateToProps = (state: any) => ({
-  places: state.places.get('places')
+  places: state.places.get('places'),
+  showModal: state.addEvent.get('showModal')
 });
 
 export default connect(
