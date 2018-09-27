@@ -26,6 +26,10 @@ const ListWrapper = styled.div`
   width: 250px;
   height: 500px;
   box-shadow: 0px 5px 25px -6px rgba(0, 0, 0, 0.75);
+  a {
+    text-decoration: none;
+    color: #37474f;
+  }
 `;
 
 const Button = styled.button`
