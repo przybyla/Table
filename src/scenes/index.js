@@ -41,8 +41,12 @@ class Scenes extends Component {
             <Route path="/:event?/:name?" component={List} />
           </LeftColumn>
           <RightColumn ref={this.rightColumn}>
-            {showModal && <AddEventPortal renderRef={this.rightColumn} />}
             <Switch>
+              <Route
+                exact
+                path="/add-event"
+                render={() => <AddEventPortal renderRef={this.rightColumn} />}
+              />
               <Route exact path="/event/:name" component={EventDetails} />
               <Route
                 exact

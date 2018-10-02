@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { actions as eventListActions } from '../../ducks/places';
@@ -74,9 +75,10 @@ class List extends Component {
             />
           ))}
         </ListWrapper>
-
-        <Button onClick={SHOW_MODAL}>
-          <Add />
+        <Button>
+          <NavLink to="/add-event">
+            <Add />
+          </NavLink>
         </Button>
       </Wrapper>
     );

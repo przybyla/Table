@@ -8,13 +8,6 @@ import { actions as addEventActions } from '../../ducks/addEvent';
 
 const AddEventWrapper = styled.div`
   padding: 15px;
-  position: absolute;
-  z-index: 99;
-  background: #ced7db;
-  height: 550px;
-  width: 1000px
-  top: calc(50% - 275px);
-  left: calc(50% - 500px);
 `;
 
 const Label = styled.p`
