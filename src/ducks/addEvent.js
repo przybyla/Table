@@ -20,7 +20,7 @@ export type AddEventActionType = {
 
 export const initialState = Map({
   newEvent: Map({
-    street: '',
+    adress: '',
     city: '',
     time: '',
     game: '',
