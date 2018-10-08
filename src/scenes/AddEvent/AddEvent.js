@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 import Geocode from 'react-geocode';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
@@ -106,6 +107,7 @@ class AddEvent extends Component {
       street,
       city
     } = this.props;
+
     const onSend = () => {
       Geocode.fromAddress(`${street}, ${city}`).then(response => {
         const { lat, lng } = response.results[0].geometry.location;
@@ -164,7 +166,9 @@ class AddEvent extends Component {
           <button className="send" onClick={() => onSend()}>
             Send
           </button>
-          <button className="cancel">Cancel</button>
+          <NavLink to="../" className="cancel">
+            Calcel
+          </NavLink>
         </Form>
       </AddEventWrapper>
     );
