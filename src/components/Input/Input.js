@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Input = styled.input`
+const InputWrapper = styled.input`
   width: 250px;
   height: 45px;
   border-radius: 4px;
@@ -20,6 +20,6 @@ const Input = styled.input`
   }
 `;
 
-const SearchInput = () => <Input placeholder="Enter your city" />;
+const Input = placeholder => <InputWrapper />;
 
-export default SearchInput;
+export default Input;

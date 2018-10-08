@@ -7,7 +7,6 @@ import { actions as eventListActions } from '../../ducks/places';
 import { actions as addEventActions } from '../../ducks/addEvent';
 
 import { Add } from '../../components/Icons';
-import SearchInput from './components/SearchInput';
 import EventItem from './components/EventItem';
 
 const Wrapper = styled.div`
@@ -18,6 +17,24 @@ const Wrapper = styled.div`
   box-shadow: 5px 0px 20px -6px rgba(0, 0, 0, 0.75);
   z-index: 99;
   align-items: center;
+  input {
+    width: 250px;
+    height: 45px;
+    border-radius: 4px;
+    border: none;
+    box-shadow: 0px 5px 25px -6px rgba(0, 0, 0, 0.75);
+    color: #707070;
+    padding: 5px;
+    box-sizing: border-box;
+    margin: 25px 0 40px 0;
+    &::placeholder {
+      opacity: 0.5;
+      font-size: 10px;
+    }
+    &:focus {
+      outline: 0;
+    }
+  }
 `;
 
 const ListWrapper = styled.div`
@@ -62,7 +79,7 @@ class List extends Component {
     } = this.props;
     return (
       <Wrapper>
-        <SearchInput />
+        <input placeholder="Enter your city" />
         <ListWrapper>
           {places.map((item, idx) => (
             <EventItem
