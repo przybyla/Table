@@ -4,9 +4,9 @@ import { Map } from 'immutable';
 import { createAction, handleActions } from 'redux-actions';
 
 export const actions = {
-  SUCCESS: createAction('PLACES/SUCCESS'),
-  ERROR: createAction('PLACES/ERROR'),
-  REQUEST: createAction('PLACES/REQUEST')
+  SUCCESS: createAction('EVENTS/SUCCESS'),
+  ERROR: createAction('EVENTS/ERROR'),
+  REQUEST: createAction('EVENTS/REQUEST')
 };
 
 type StateType = Map<string, string | boolean | Map<string, any>>;
@@ -16,7 +16,7 @@ export type EventListActionType = {
 };
 
 export const initialState = Map({
-  places: Map({}),
+  events: Map({}),
   isProcessing: false,
   error: false
 });
@@ -24,7 +24,7 @@ export const initialState = Map({
 const reducer = handleActions(
   {
     [actions.SUCCESS]: (state: StateType, action: EventListActionType) =>
-      state.set('isProcessing', false).set('places', action.payload),
+      state.set('isProcessing', false).set('events', action.payload),
     [actions.REQUEST]: (state: StateType, action: EventListActionType) =>
       state.set('isProcessing', true),
     [actions.ERROR]: (state: StateType, action: EventListActionType) =>

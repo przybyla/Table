@@ -1,13 +1,13 @@
 // @flow
 import { combineReducers } from 'redux';
-import places from './places';
+import events from './events';
 import eventDetails from './eventDetails';
 import addEvent from './addEvent';
 import responsive from './responsive';
 import user from './user';
 
 const rootReducer = combineReducers({
-  places,
+  events,
   eventDetails,
   addEvent,
   responsive,

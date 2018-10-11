@@ -33,7 +33,7 @@ class Scenes extends Component {
   state = {};
   rightColumn = React.createRef();
   render() {
-    const { places, showModal } = this.props;
+    const { events } = this.props;
     return (
       <Router history={history}>
         <AppWrapper>
@@ -58,7 +58,7 @@ class Scenes extends Component {
                     loadingElement={<div style={{ height: `100%` }} />}
                     containerElement={<MapWrapper />}
                     mapElement={<div style={{ height: `100%` }} />}
-                    places={places}
+                    events={events}
                   />
                 )}
               />
@@ -71,8 +71,7 @@ class Scenes extends Component {
 }
 
 const mapStateToProps = (state: any) => ({
-  places: state.places.get('places'),
-  showModal: state.addEvent.get('showModal')
+  events: state.events.get('events')
 });
 
 export default connect(

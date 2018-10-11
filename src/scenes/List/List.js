@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { actions as eventListActions } from '../../ducks/places';
+import { actions as eventListActions } from '../../ducks/events';
 import { actions as addEventActions } from '../../ducks/addEvent';
 
 import { Add } from '../../components/Icons';
@@ -67,21 +67,18 @@ class List extends Component {
 
   componentDidMount() {
     const {
-      PLACES_ACTIONS: { REQUEST }
+      EVENTS_ACTIONS: { REQUEST }
     } = this.props;
     REQUEST();
   }
 
   render() {
-    const {
-      places,
-      ADD_EVENT_ACTIONS: { SHOW_MODAL }
-    } = this.props;
+    const { events } = this.props;
     return (
       <Wrapper>
         <input placeholder="Enter your city" />
         <ListWrapper>
-          {places.map((item, idx) => (
+          {events.map((item, idx) => (
             <EventItem
               key={idx}
               name={item.name}
@@ -103,12 +100,12 @@ class List extends Component {
 }
 
 const mapDispatchToProps = (dispatch: () => void) => ({
-  PLACES_ACTIONS: bindActionCreators(eventListActions, dispatch),
+  EVENTS_ACTIONS: bindActionCreators(eventListActions, dispatch),
   ADD_EVENT_ACTIONS: bindActionCreators(addEventActions, dispatch)
 });
 
 const mapStateToProps = (state: any) => ({
-  places: state.places.get('places')
+  events: state.events.get('events')
 });
 
 export default connect(

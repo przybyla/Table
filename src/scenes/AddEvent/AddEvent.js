@@ -102,8 +102,7 @@ class AddEvent extends Component {
   render() {
     Geocode.setApiKey(apiKey);
     const {
-      ADD_EVENT_ACTIONS: { INPUT, PUT, GET_COORDS },
-      newEvent,
+      ADD_EVENT_ACTIONS: { INPUT, GET_COORDS },
       street,
       city
     } = this.props;
