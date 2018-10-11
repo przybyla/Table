@@ -12,8 +12,23 @@ const EventItemWrapper = styled.div`
 `;
 
 const EventName = styled.div`
+  font-weight: bold;
   font-size: 16px;
   grid-column: 1;
+  grid-row: 1;
+  align-self: center;
+`;
+
+const EventGame = styled.div`
+  font-size: 12px;
+  grid-column: 1;
+  grid-row: 2;
+  align-self: center;
+`;
+
+const EventUsers = styled.div`
+  font-size: 12px;
+  grid-column: 2;
   grid-row: 1;
   align-self: center;
 `;
@@ -38,13 +53,29 @@ type PropsType = {
   street: string,
   city: string,
   date: string,
-  time: string
+  time: string,
+  signedUsers: number,
+  maxUsers: number
 };
 
-const EventItem = ({ key, name, street, city, date, time }: PropsType) => (
+const EventItem = ({
+  key,
+  name,
+  street,
+  city,
+  date,
+  time,
+  signedUsers,
+  maxUsers,
+  game
+}: PropsType) => (
   <NavLink to={`/event/${name}`}>
     <EventItemWrapper key={key}>
       <EventName>{name}</EventName>
+      <EventGame>{game}</EventGame>
+      <EventUsers>
+        {signedUsers}/{maxUsers}
+      </EventUsers>
       <EventAdress>
         {street}, {city}
       </EventAdress>

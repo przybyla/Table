@@ -86,6 +86,9 @@ class List extends Component {
               city={item.city}
               date={item.date}
               time={item.time}
+              game={item.game}
+              signedUsers={item.signedUsers}
+              maxUsers={item.maxUsers}
             />
           ))}
         </ListWrapper>

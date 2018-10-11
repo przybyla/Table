@@ -36,6 +36,15 @@ const GameInfo = styled.div`
 
 class EventDetails extends Component {
   state = {};
+  componentDidMount() {
+    const {
+      EVENT_DETAILS_ACTIONS: { REQUEST },
+      match: {
+        params: { name }
+      }
+    } = this.props;
+    REQUEST(name);
+  }
   render() {
     return (
       <EventDetailsWrapper>

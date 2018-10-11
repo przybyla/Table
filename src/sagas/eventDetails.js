@@ -9,13 +9,14 @@ export function* eventDetails(
   const id = action.payload;
   const { response, error } = yield call(
     api,
-    `http://demo2832403.mockable.io/place-details/${id}`,
+    `http://demo3890494.mockable.io/event-details/${id.toLowerCase()}`,
     {
       method: 'get'
     }
   );
   if (response) {
     const json = yield response.json();
+    console.log('dupa');
     yield put(EVENT_DETAILS_ACTIONS.SUCCESS(json));
   } else if (error.status < 500 && error.status >= 400) {
     yield put(EVENT_DETAILS_ACTIONS.ERROR());
