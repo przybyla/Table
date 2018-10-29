@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { NavLink } from 'react-router-dom';
 import Geocode from 'react-geocode';
 import styled from 'styled-components';
@@ -7,31 +7,41 @@ import { bindActionCreators } from 'redux';
 import { apiKey } from '../../config';
 import { actions as addEventActions } from '../../ducks/addEvent';
 
+import { Back } from '../../components/Icons';
 import AddEventForm from './AddEventForm';
 
+const Wrapper = styled.div`
+  height: 100vh;
+`;
 const AddEventWrapper = styled.div`
   padding: 15px;
-  background: #37474f;
   height: 100%;
   box-sizing: border-box;
 `;
 const Header = styled.div`
+  width: 100%;
+  height: 100px;
+  background: #37474f;
+  padding: 15px;
   display: flex;
-  justify-content: center;
-  margin: 15px 0 25px 0;
-  color: #fff;
-  font-size: 1.25rem;
+  align-items: center;
+  box-sizing: border-box;
 `;
 
 class AddEvent extends Component {
   render() {
     return (
-      <AddEventWrapper>
+      <Wrapper>
         <Header>
+          <NavLink to="/">
+            <Back />
+          </NavLink>
           <div>Add new event and wait for other people to join you!</div>
         </Header>
-        <AddEventForm />
-      </AddEventWrapper>
+        <AddEventWrapper>
+          <AddEventForm />
+        </AddEventWrapper>
+      </Wrapper>
     );
   }
 }

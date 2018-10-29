@@ -6,7 +6,7 @@ import history from './history';
 import { apiKey } from '../config';
 import List from './List';
 import EventDetails from './EventDetails';
-import AddEventPortal from './AddEvent';
+import AddEvent from './AddEvent';
 import GoogleMapComponent from '../components/GoogleMap';
 
 const AppWrapper = styled.div`
@@ -40,13 +40,9 @@ class Scenes extends Component {
           <LeftColumn>
             <Route path="/:event?/:name?" component={List} />
           </LeftColumn>
-          <RightColumn ref={this.rightColumn}>
+          <RightColumn>
             <Switch>
-              <Route
-                exact
-                path="/add-event"
-                render={() => <AddEventPortal renderRef={this.rightColumn} />}
-              />
+              <Route exact path="/add-event" component={AddEvent} />
               <Route exact path="/event/:name" component={EventDetails} />
               <Route
                 exact
