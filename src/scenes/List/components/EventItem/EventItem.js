@@ -31,6 +31,7 @@ const EventUsers = styled.div`
   grid-column: 2;
   grid-row: 1;
   align-self: center;
+  justify-self: end;
 `;
 
 const EventAdress = styled.div`
@@ -45,6 +46,8 @@ const EventDetails = styled.div`
   grid-column: 2;
   grid-row: 3;
   align-self: center;
+  justify-self: end;
+  text-align: right;
 `;
 
 type PropsType = {

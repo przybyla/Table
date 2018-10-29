@@ -9,6 +9,8 @@ import { actions as addEventActions } from '../../ducks/addEvent';
 import { Add } from '../../components/Icons';
 import EventItem from './components/EventItem';
 
+import { events } from '../../mock/mock';
+
 const Wrapper = styled.div`
   display: flex;
   background: #ced7db;
@@ -66,14 +68,14 @@ class List extends Component {
   state = {};
 
   componentDidMount() {
-    const {
-      EVENTS_ACTIONS: { REQUEST }
-    } = this.props;
-    REQUEST();
+    // const {
+    //   EVENTS_ACTIONS: { REQUEST }
+    // } = this.props;
+    // REQUEST();
   }
 
   render() {
-    const { events } = this.props;
+    // const { events } = this.props;
     return (
       <Wrapper>
         <input placeholder="Enter your city" />

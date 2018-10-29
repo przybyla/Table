@@ -16,7 +16,6 @@ export function* eventDetails(
   );
   if (response) {
     const json = yield response.json();
-    console.log('dupa');
     yield put(EVENT_DETAILS_ACTIONS.SUCCESS(json));
   } else if (error.status < 500 && error.status >= 400) {
     yield put(EVENT_DETAILS_ACTIONS.ERROR());
