@@ -233,7 +233,7 @@ export const eventDetails = {
   name: 'HEX',
   city: 'Kraków',
   street: 'Generała Józefa Dwernickiego 5',
-  signedUsers: 3,
+  signedUsers: 5,
   maxUsers: 5,
   lat: 52.409538,
   lng: 16.931992,

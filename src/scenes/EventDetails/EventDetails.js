@@ -5,7 +5,14 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Back } from '../../components/Icons';
 import EventForm from './EventForm';
-import { Add } from '../../components/Icons';
+import {
+  PersonAdd,
+  PersonAddDisabled,
+  Pin,
+  Time,
+  Group,
+  Dice
+} from '../../components/Icons';
 
 import { apiKey } from '../../config';
 import GoogleMapComponent from '../../components/GoogleMap';
@@ -53,6 +60,18 @@ const GameInfo = styled.div`
 const MapWrapper = styled.div`
   height: calc(100vh - 100px);
 `;
+const InfoWrapper = styled.div`
+  display: flex;
+  margin-bottom: 15px;
+`;
+const Info = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  .info-header {
+    font-weight: bold;
+  }
+`;
 
 const Button = styled.button`
   background: #37474f;
@@ -83,6 +102,7 @@ class EventDetails extends Component {
   };
   render() {
     const { showEventForm } = this.state;
+    const full = eventDetails.signedUsers === eventDetails.maxUsers;
     return (
       <EventDetailsWrapper>
         <Header>
@@ -93,28 +113,47 @@ class EventDetails extends Component {
         </Header>
         <Content>
           <EventInfo>
-            <div>
-              Adress:
-              <div>{eventDetails.city}</div>
-              <div>{eventDetails.street}</div>
-            </div>
-            <div>
-              Players: {eventDetails.signedUsers} / {eventDetails.maxUsers}
-            </div>
-            <div>
-              Date:
-              <div>
-                {eventDetails.date} at {eventDetails.time}
-              </div>
-            </div>
-            <div>
-              Game:
-              <div>{eventDetails.game}</div>
-            </div>
+            <InfoWrapper>
+              <Pin color="#37474f" />
+              <Info>
+                <span className="info-header">Adress:</span>
+                <span>{eventDetails.street}</span>
+                <span>{eventDetails.city}</span>
+              </Info>
+            </InfoWrapper>
+            <InfoWrapper>
+              <Group color="#37474f" />
+              <Info>
+                <span className="info-header">Players:</span>
+                <span>
+                  {eventDetails.signedUsers} / {eventDetails.maxUsers}
+                </span>
+              </Info>
+            </InfoWrapper>
+            <InfoWrapper>
+              <Time color="#37474f" />
+              <Info>
+                <span className="info-header">Date:</span>
+                <span>
+                  {eventDetails.date} at {eventDetails.time}
+                </span>
+              </Info>
+            </InfoWrapper>
+            <InfoWrapper>
+              <Dice color="#37474f" />
+              <Info>
+                <span className="info-header">Game:</span>
+                <span>{eventDetails.game}</span>
+              </Info>
+            </InfoWrapper>
             {showEventForm && <EventForm />}
 
-            <Button onClick={() => this.showForm()}>
-              <Add />
+            <Button onClick={() => this.showForm()} disabled={full}>
+              {full ? (
+                <PersonAddDisabled color="#fff" />
+              ) : (
+                <PersonAdd color="#fff" />
+              )}
             </Button>
           </EventInfo>
           <GameInfo>

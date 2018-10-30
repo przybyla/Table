@@ -21,117 +21,96 @@ export const Back = ({ color }: { color: string }) => (
     <path fill="none" d="M0 0h24v24H0z" />
   </svg>
 );
-
-export const ListIcon = ({ color }: { color: string }) => (
+export const PersonAdd = ({ color }: { color: string }) => (
   <svg
-    aria-hidden="true"
-    data-prefix="fas"
-    data-icon="list"
-    height="20px"
-    className="svg-inline--fa fa-list fa-w-16"
-    role="img"
     xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 512 512">
+    width="30"
+    height="30"
+    viewBox="0 0 24 24">
+    <path d="M0 0h24v24H0z" fill="none" />
     <path
+      d="M15 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm-9-2V7H4v3H1v2h3v3h2v-3h3v-2H6zm9 4c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
       fill={color}
-      d="M128 116V76c0-8.837 7.163-16 16-16h352c8.837 0 16 7.163 16 16v40c0 8.837-7.163 16-16 16H144c-8.837 0-16-7.163-16-16zm16 176h352c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H144c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h352c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H144c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zM16 144h64c8.837 0 16-7.163 16-16V64c0-8.837-7.163-16-16-16H16C7.163 48 0 55.163 0 64v64c0 8.837 7.163 16 16 16zm0 160h64c8.837 0 16-7.163 16-16v-64c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v64c0 8.837 7.163 16 16 16zm0 160h64c8.837 0 16-7.163 16-16v-64c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v64c0 8.837 7.163 16 16 16z"
     />
   </svg>
 );
-export const UserIcon = ({ color }: { color: string }) => (
+export const PersonAddDisabled = ({ color }: { color: string }) => (
   <svg
-    aria-hidden="true"
-    data-prefix="fas"
-    data-icon="user"
-    height="20px"
-    className="svg-inline--fa fa-user fa-w-14"
-    role="img"
     xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 448 512">
+    width="30"
+    height="30"
+    viewBox="0 0 24 24">
+    <path fill="none" d="M0 0h24v24H0V0z" />
+    <circle cx="15" cy="8" r="4" fill={color} />
     <path
+      d="M23 20v-2c0-2.3-4.1-3.7-6.9-3.9l6 5.9h.9zm-11.6-5.5C9.2 15.1 7 16.3 7 18v2h9.9l4 4 1.3-1.3-21-20.9L0 3.1l4 4V10H1v2h3v3h2v-3h2.9l2.5 2.5zM6 10v-.9l.9.9H6z"
       fill={color}
-      d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"
     />
   </svg>
 );
-export const MapIcon = ({ color }: { color: string }) => (
+export const Calendar = ({ color }: { color: string }) => (
   <svg
-    aria-hidden="true"
-    data-prefix="fas"
-    data-icon="map-marked"
-    height="20px"
-    className="svg-inline--fa fa-map-marked fa-w-18"
-    role="img"
     xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 576 512">
+    width="30"
+    height="30"
+    viewBox="0 0 24 24">
     <path
+      d="M20 3h-1V1h-2v2H7V1H5v2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 18H4V8h16v13z"
       fill={color}
-      d="M288 0c-69.59 0-126 56.41-126 126 0 56.26 82.35 158.8 113.9 196.02 6.39 7.54 17.82 7.54 24.2 0C331.65 284.8 414 182.26 414 126 414 56.41 357.59 0 288 0zM20.12 215.95A32.006 32.006 0 0 0 0 245.66v250.32c0 11.32 11.43 19.06 21.94 14.86L160 448V214.92c-8.84-15.98-16.07-31.54-21.25-46.42L20.12 215.95zM288 359.67c-14.07 0-27.38-6.18-36.51-16.96-19.66-23.2-40.57-49.62-59.49-76.72v182l192 64V266c-18.92 27.09-39.82 53.52-59.49 76.72-9.13 10.77-22.44 16.95-36.51 16.95zm266.06-198.51L416 224v288l139.88-55.95A31.996 31.996 0 0 0 576 426.34V176.02c0-11.32-11.43-19.06-21.94-14.86z"
+    />
+    <path fill="none" d="M0 0h24v24H0z" />
+  </svg>
+);
+export const Pin = ({ color }: { color: string }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="30"
+    height="30"
+    viewBox="0 0 24 24">
+    <path
+      d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+      fill={color}
+    />
+    <path d="M0 0h24v24H0z" fill="none" />
+  </svg>
+);
+export const Time = ({ color }: { color: string }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="30"
+    height="30"
+    viewBox="0 0 24 24">
+    <path
+      d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
+      fill={color}
+    />
+    <path d="M0 0h24v24H0z" fill="none" />
+    <path d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z" fill={color} />
+  </svg>
+);
+export const Group = ({ color }: { color: string }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="30"
+    height="30"
+    viewBox="0 0 24 24">
+    <path d="M0 0h24v24H0z" fill="none" />
+    <path
+      d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"
+      fill={color}
     />
   </svg>
 );
-
-export const AddEventIcon = ({ color }: { color: string }) => (
+export const Dice = ({ color }: { color: string }) => (
   <svg
-    aria-hidden="true"
-    data-prefix="fas"
-    data-icon="plus"
-    height="20px"
-    className="svg-inline--fa fa-plus fa-w-14"
-    role="img"
     xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 448 512">
+    width="30"
+    height="30"
+    viewBox="0 0 24 24">
     <path
-      fill={color}
-      d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"
+      fill="none"
+      d="M0 0h24v24H0zm21.02 19c0 1.1-.9 2-2 2h-14c-1.1 0-2-.9-2-2V5c0-1.1.9-2 2-2h14c1.1 0 2 .9 2 2v14z"
     />
-  </svg>
-);
-export const PinIcon = ({ color }: { color: string }) => (
-  <svg
-    aria-hidden="true"
-    data-prefix="fas"
-    data-icon="map-pin"
-    height="20px"
-    className="svg-inline--fa fa-map-pin fa-w-10"
-    role="img"
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 320 512">
-    <path
-      fill={color}
-      d="M192 300.813v172.82l-22.015 33.023c-4.75 7.125-15.219 7.125-19.969 0L128 473.633v-172.82a162.221 162.221 0 0 0 64 0zM160 0c79.529 0 144 64.471 144 144s-64.471 144-144 144S16 223.529 16 144 80.471 0 160 0M80 136c0-39.701 32.299-72 72-72a8 8 0 0 0 0-16c-48.523 0-88 39.477-88 88a8 8 0 0 0 16 0z"
-    />
-  </svg>
-);
-export const CloseMenuIcon = ({ color }: { color: string }) => (
-  <svg
-    aria-hidden="true"
-    data-prefix="fas"
-    data-icon="times"
-    height="20px"
-    className="svg-inline--fa fa-times fa-w-11"
-    role="img"
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 352 512">
-    <path
-      fill={color}
-      d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
-    />
-  </svg>
-);
-export const MenuIcon = ({ color }: { color: string }) => (
-  <svg
-    aria-hidden="true"
-    data-prefix="fas"
-    data-icon="bars"
-    height="20px"
-    className="svg-inline--fa fa-bars fa-w-14"
-    role="img"
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 448 512">
-    <path
-      fill={color}
-      d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"
-    />
+    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM7.5 18c-.83 0-1.5-.67-1.5-1.5S6.67 15 7.5 15s1.5.67 1.5 1.5S8.33 18 7.5 18zm0-9C6.67 9 6 8.33 6 7.5S6.67 6 7.5 6 9 6.67 9 7.5 8.33 9 7.5 9zm4.5 4.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm4.5 4.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm0-9c-.83 0-1.5-.67-1.5-1.5S15.67 6 16.5 6s1.5.67 1.5 1.5S17.33 9 16.5 9z" fill={color}/>
   </svg>
 );
