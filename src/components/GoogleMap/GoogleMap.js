@@ -8,11 +8,20 @@ import {
 
 const GoogleMapComponent = withScriptjs(
   withGoogleMap(props => (
-    <GoogleMap defaultZoom={6} defaultCenter={{ lat: 52.0, lng: 20.0 }}>
-      {props.isMarkerShown &&
-        props.events.map(place => (
-          <Marker position={{ lat: place.lat, lng: place.lng }} />
-        ))}
+    <GoogleMap
+      defaultZoom={props.events ? 6 : 15}
+      defaultCenter={{
+        lat: props.events ? 52.0 : props.lat,
+        lng: props.events ? 20.0 : props.lng
+      }}>
+      {props.events
+        ? props.isMarkerShown &&
+          props.events.map(place => (
+            <Marker position={{ lat: place.lat, lng: place.lng }} />
+          ))
+        : props.isMarkerShown && (
+            <Marker position={{ lat: props.lat, lng: props.lng }} />
+          )}
     </GoogleMap>
   ))
 );

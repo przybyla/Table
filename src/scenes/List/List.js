@@ -44,12 +44,17 @@ const ListWrapper = styled.div`
   overflow-y: scroll;
   border-radius: 4px;
   width: 250px;
-  height: 500px;
+  height: calc(100vh - 56px);
+  margin: 15px 0;
   box-shadow: 0px 5px 25px -6px rgba(0, 0, 0, 0.75);
   a {
     text-decoration: none;
     color: #37474f;
   }
+`;
+const ButtonWrapper = styled.div`
+  height: 56px;
+  margin-bottom: 15px;
 `;
 
 const Button = styled.button`
@@ -59,7 +64,6 @@ const Button = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 40px 0;
   border-radius: 50%;
   box-shadow: 0px 5px 25px -6px rgba(0, 0, 0, 0.75);
 `;
@@ -78,7 +82,6 @@ class List extends Component {
     // const { events } = this.props;
     return (
       <Wrapper>
-        <input placeholder="Enter your city" />
         <ListWrapper>
           {events.map((item, idx) => (
             <EventItem
@@ -94,11 +97,13 @@ class List extends Component {
             />
           ))}
         </ListWrapper>
-        <Button>
-          <NavLink to="/add-event">
-            <Add />
-          </NavLink>
-        </Button>
+        <ButtonWrapper>
+          <Button>
+            <NavLink to="/add-event">
+              <Add />
+            </NavLink>
+          </Button>
+        </ButtonWrapper>
       </Wrapper>
     );
   }

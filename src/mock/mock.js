@@ -228,3 +228,16 @@ export const events = [
     game: 'Lords of Waterdeep'
   }
 ];
+
+export const eventDetails = {
+  name: 'HEX',
+  city: 'Kraków',
+  street: 'Generała Józefa Dwernickiego 5',
+  signedUsers: 3,
+  maxUsers: 5,
+  lat: 52.409538,
+  lng: 16.931992,
+  date: '10.01.2019',
+  time: '19:00',
+  game: 'Lords of Waterdeep'
+};

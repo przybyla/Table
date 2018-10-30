@@ -5,7 +5,12 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Back } from '../../components/Icons';
 
+import { apiKey } from '../../config';
+import GoogleMapComponent from '../../components/GoogleMap';
+
 import { actions as eventDetailsActions } from '../../ducks/eventDetails';
+
+import { eventDetails } from '../../mock/mock';
 
 const EventDetailsWrapper = styled.div`
   height: 100vh;
@@ -19,43 +24,90 @@ const Header = styled.div`
   display: flex;
   align-items: center;
   box-sizing: border-box;
+
+  .back-button {
+    height: 30px;
+  }
+
+  .event-name {
+    margin-left: 15px;
+    font-size: 2.125rem;
+    color: #fff;
+  }
 `;
 const Content = styled.div`
   display: flex;
   height: calc(100% - 100px);
 `;
 const EventInfo = styled.div`
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
   padding: 15px;
   width: 65%;
 `;
 const GameInfo = styled.div`
-  padding: 15px;
-  background: #ced7db;
   width: 35%;
+`;
+
+const MapWrapper = styled.div`
+  height: calc(100vh - 100px);
 `;
 
 class EventDetails extends Component {
   state = {};
   componentDidMount() {
-    const {
-      EVENT_DETAILS_ACTIONS: { REQUEST },
-      match: {
-        params: { name }
-      }
-    } = this.props;
-    REQUEST(name);
+    // const {
+    //   EVENT_DETAILS_ACTIONS: { REQUEST },
+    //   match: {
+    //     params: { name }
+    //   }
+    // } = this.props;
+    // REQUEST(name);
   }
+
   render() {
+    console.log(eventDetails);
     return (
       <EventDetailsWrapper>
         <Header>
-          <NavLink to="/">
+          <NavLink className="back-button" to="/">
             <Back />
           </NavLink>
+          <div className="event-name">{eventDetails.name}</div>
         </Header>
         <Content>
-          <EventInfo>xd</EventInfo>
-          <GameInfo>XD</GameInfo>
+          <EventInfo>
+            <div>
+              Adress:
+              <div>{eventDetails.city}</div>
+              <div>{eventDetails.street}</div>
+            </div>
+            <div>
+              Players: {eventDetails.signedUsers} / {eventDetails.maxUsers}
+            </div>
+            <div>
+              Date:
+              <div>
+                {eventDetails.date} at {eventDetails.time}
+              </div>
+            </div>
+            <div>
+              Game:
+              <div>{eventDetails.game}</div>
+            </div>
+          </EventInfo>
+          <GameInfo>
+            <GoogleMapComponent
+              isMarkerShown
+              googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${apiKey}&v=3.exp&libraries=geometry,drawing,places`}
+              loadingElement={<div style={{ height: `100%` }} />}
+              containerElement={<MapWrapper />}
+              mapElement={<div style={{ height: `100%` }} />}
+              lat={eventDetails.lat}
+              lng={eventDetails.lng}
+            />
+          </GameInfo>
         </Content>
       </EventDetailsWrapper>
     );

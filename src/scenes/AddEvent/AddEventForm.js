@@ -63,8 +63,14 @@ const AddEventForm = () => (
         if (!values.eventName) {
           errors.eventName = 'Required';
         }
+        if (!values.email) {
+          errors.email = 'Required';
+        }
         if (!values.adress) {
           errors.adress = 'Required';
+        }
+        if (!values.city) {
+          errors.city = 'Required';
         }
         if (!values.numberOfPlayers) {
           errors.numberOfPlayers = 'Required';
@@ -84,6 +90,17 @@ const AddEventForm = () => (
         <form onSubmit={handleSubmit}>
           <FormWrapper>
             <InputWrapper>
+              <Label>E-mail</Label>
+              <Field
+                name="email"
+                className="input"
+                component="input"
+                type="text"
+                placeholder="email"
+              />
+              <Error name="eventName" />
+            </InputWrapper>
+            <InputWrapper>
               <Label>Event name</Label>
               <Field
                 name="eventName"
@@ -102,6 +119,17 @@ const AddEventForm = () => (
                 component="input"
                 type="text"
                 placeholder="Adress"
+              />
+              <Error name="adress" />
+            </InputWrapper>
+            <InputWrapper>
+              <Label>City</Label>
+              <Field
+                name="city"
+                className="input"
+                component="input"
+                type="text"
+                placeholder="City"
               />
               <Error name="adress" />
             </InputWrapper>

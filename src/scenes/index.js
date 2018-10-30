@@ -9,6 +9,8 @@ import EventDetails from './EventDetails';
 import AddEvent from './AddEvent';
 import GoogleMapComponent from '../components/GoogleMap';
 
+import { events } from '../mock/mock';
+
 const AppWrapper = styled.div`
   width: 100%;
   margin: 0 auto;
@@ -33,7 +35,6 @@ class Scenes extends Component {
   state = {};
   rightColumn = React.createRef();
   render() {
-    const { events } = this.props;
     return (
       <Router history={history}>
         <AppWrapper>
