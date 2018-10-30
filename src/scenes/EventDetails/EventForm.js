@@ -24,8 +24,6 @@ const FormWrapper = styled.div`
     box-sizing: border-box;
   }
   .error {
-    position: absolute;
-    bottom: 0;
     font-size: 0.75rem;
     color: #f92c32;
   }
@@ -36,11 +34,6 @@ const Button = styled.button`
   width: 100px;
   height: 45px;
   border-radius: 4px;
-`;
-
-const Label = styled.div`
-  margin-bottom: 5px;
-  color: #37474f;
 `;
 
 const onSubmit = values => {
@@ -76,7 +69,7 @@ const EventForm = () => (
               type="email"
               placeholder="email"
             />
-            <Error name="eventName" />
+            <Error name="email" />
             <Button type="submit" disabled={submitting}>
               Sign up
             </Button>
