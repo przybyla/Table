@@ -4,6 +4,8 @@ import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Back } from '../../components/Icons';
+import EventForm from './EventForm';
+import { Add } from '../../components/Icons';
 
 import { apiKey } from '../../config';
 import GoogleMapComponent from '../../components/GoogleMap';
@@ -40,11 +42,9 @@ const Content = styled.div`
   height: calc(100% - 100px);
 `;
 const EventInfo = styled.div`
-  display: grid;
-  grid-template-columns: auto auto;
-  grid-template-rows: auto auto;
   padding: 15px;
   width: 65%;
+  position: relative;
 `;
 const GameInfo = styled.div`
   width: 35%;
@@ -54,8 +54,19 @@ const MapWrapper = styled.div`
   height: calc(100vh - 100px);
 `;
 
+const Button = styled.button`
+  background: #37474f;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  box-shadow: 0px 5px 25px -6px rgba(0, 0, 0, 0.75);
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+`;
+
 class EventDetails extends Component {
-  state = {};
+  state = { showEventForm: false };
   componentDidMount() {
     // const {
     //   EVENT_DETAILS_ACTIONS: { REQUEST },
@@ -65,9 +76,13 @@ class EventDetails extends Component {
     // } = this.props;
     // REQUEST(name);
   }
-
+  showForm = () => {
+    this.setState((prevState: StateType) => ({
+      showEventForm: !prevState.showEventForm
+    }));
+  };
   render() {
-    console.log(eventDetails);
+    const { showEventForm } = this.state;
     return (
       <EventDetailsWrapper>
         <Header>
@@ -96,6 +111,11 @@ class EventDetails extends Component {
               Game:
               <div>{eventDetails.game}</div>
             </div>
+            {showEventForm && <EventForm />}
+
+            <Button onClick={() => this.showForm()}>
+              <Add />
+            </Button>
           </EventInfo>
           <GameInfo>
             <GoogleMapComponent
